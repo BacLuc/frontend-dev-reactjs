@@ -1,0 +1,66 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly when there are no items 1`] = `
+<div
+  className="col-12"
+  style={
+    Object {
+      "marginTop": 5,
+    }
+  }
+>
+  <div
+    className="row"
+  >
+    <div
+      className="col-12 col-md-5 card"
+    >
+      <img
+        alt="Uthappizza"
+        className="card-img"
+        src="assets/images/uthappizza.png"
+        width="100%"
+      />
+      <div
+        className="card-title"
+      >
+        Uthappizza
+      </div>
+      <p
+        className="card-text"
+      >
+        A unique combination of Indian Uthappam (pancake) and Italian pizza, topped with Cerignola olives, ripe vine cherry tomatoes, Vidalia onion, Guntur chillies and Buffalo Paneer.
+      </p>
+    </div>
+    <div
+      className="col-12 col-md-5"
+    >
+      <h1>
+        Comments
+      </h1>
+      <div>
+        <p>
+          Imagine all the eatables, living in conFusion!
+        </p>
+        <p>
+          John Lemon
+        </p>
+        <p>
+          2012-10-16T17:57:28.556094Z
+        </p>
+      </div>
+      <div>
+        <p>
+          Sends anyone to heaven, I wish I could get my mother-in-law to eat it!
+        </p>
+        <p>
+          Paul McVites
+        </p>
+        <p>
+          2014-09-05T17:57:28.556094Z
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+`;
