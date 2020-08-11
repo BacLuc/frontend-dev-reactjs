@@ -1,19 +1,20 @@
-import React from 'react';
+import React, {Component} from 'react';
 import './App.css';
 import {Navbar, NavbarBrand} from "reactstrap";
 import {Menu} from "./components/Menu";
 
-function App() {
-    return (
-        <div>
-            <Navbar dark color={"primary"}>
-                <div className={"container"}>
-                    <NavbarBrand href={"/"}>Ristorante Con Fusion</NavbarBrand>
-                </div>
-            </Navbar>
-            <Menu/>
-        </div>
-    );
-}
+export class App extends Component<any, any> {
 
-export default App;
+    render() {
+        return (
+            <div>
+                <Navbar dark color={"primary"}>
+                    <div className={"container"}>
+                        <NavbarBrand href={"/"}>Ristorante Con Fusion</NavbarBrand>
+                    </div>
+                </Navbar>
+                <Menu/>
+            </div>
+        )
+    };
+}
