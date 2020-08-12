@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders correctly when there are no items 1`] = `
+exports[`renders correctly 1`] = `
 <div
   className="col-12"
   style={
@@ -33,32 +33,62 @@ exports[`renders correctly when there are no items 1`] = `
       </p>
     </div>
     <div
-      className="col-12 col-md-5"
+      className="ui comments col-12 col-md-5"
     >
-      <h1>
+      <h1
+        className="ui dividing header"
+      >
         Comments
       </h1>
-      <div>
-        <p>
-          Imagine all the eatables, living in conFusion!
-        </p>
-        <p>
-          John Lemon
-        </p>
-        <p>
-          2012-10-16T17:57:28.556094Z
-        </p>
+      <div
+        className="comment"
+      >
+        <div
+          className="content"
+        >
+          <div
+            className="author"
+          >
+            John Lemon
+          </div>
+          <div
+            className="metadata"
+          >
+            <div>
+              2012-10-16T17:57:28.556094Z
+            </div>
+          </div>
+          <div
+            className="text"
+          >
+            Imagine all the eatables, living in conFusion!
+          </div>
+        </div>
       </div>
-      <div>
-        <p>
-          Sends anyone to heaven, I wish I could get my mother-in-law to eat it!
-        </p>
-        <p>
-          Paul McVites
-        </p>
-        <p>
-          2014-09-05T17:57:28.556094Z
-        </p>
+      <div
+        className="comment"
+      >
+        <div
+          className="content"
+        >
+          <div
+            className="author"
+          >
+            Paul McVites
+          </div>
+          <div
+            className="metadata"
+          >
+            <div>
+              2014-09-05T17:57:28.556094Z
+            </div>
+          </div>
+          <div
+            className="text"
+          >
+            Sends anyone to heaven, I wish I could get my mother-in-law to eat it!
+          </div>
+        </div>
       </div>
     </div>
   </div>

@@ -1,6 +1,6 @@
 import {Card, CardImg, CardText, CardTitle} from "reactstrap";
 import React from "react";
-import { Comment } from "./Comment";
+import {Comment, Header} from 'semantic-ui-react';
 
 export function DishDetail(props: { dish: any }) {
     if (!props.dish) {
@@ -19,12 +19,22 @@ export function DishDetail(props: { dish: any }) {
                     <CardTitle>{props.dish.name}</CardTitle>
                     <CardText>{props.dish.description}</CardText>
                 </Card>
-                <div className={"col-12 col-md-5"}>
-                    <h1>Comments</h1>
+                <Comment.Group className={"col-12 col-md-5"}>
+                    <Header as={"h1"} dividing>
+                        Comments
+                    </Header>
                     {props.dish.comments.map((comment: any) => (
-                        <Comment key={comment.id} comment={comment}/>
+                        <Comment key={comment.id}>
+                            <Comment.Content>
+                                <Comment.Author>{comment.author}</Comment.Author>
+                                <Comment.Metadata>
+                                    <div>{comment.date}</div>
+                                </Comment.Metadata>
+                                <Comment.Text>{comment.comment}</Comment.Text>
+                            </Comment.Content>
+                        </Comment>
                     ))}
-                </div>
+                </Comment.Group>
             </div>
         </div>
     );
