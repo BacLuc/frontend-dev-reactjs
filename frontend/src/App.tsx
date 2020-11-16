@@ -3,6 +3,7 @@ import './App.css';
 import {Menu} from "./components/Menu";
 import {DISHES} from "./shared/dishes";
 import {Header} from "./components/Header";
+import {Footer} from "./components/Footer";
 
 export class App extends Component<any, any> {
 
@@ -18,6 +19,7 @@ export class App extends Component<any, any> {
             <div>
                 <Header/>
                 <Menu dishes={this.state.dishes}/>
+                <Footer/>
             </div>
         )
     };
