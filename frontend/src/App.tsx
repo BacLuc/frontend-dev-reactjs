@@ -1,11 +1,11 @@
 import React, {Component} from 'react';
 import './App.css';
-import {Menu} from "./components/Menu";
 import {DISHES} from "./shared/dishes";
 import {Header} from "./components/Header";
 import {Footer} from "./components/Footer";
 import {BrowserRouter, Switch, Route, Redirect} from "react-router-dom";
 import {Home} from "./pages/Home";
+import {Menu} from "./pages/Menu";
 
 export class App extends Component<any, any> {
 
