@@ -5,7 +5,7 @@
   "scripts": {
     "build": "react-scripts build",
     "eject": "react-scripts eject",
-    "lint": "eslint --fix src/**/*.ts src/**/*.tsx",
+    "lint": "eslint --fix src/**/*.ts src/**/*.tsx && prettier --write -u .",
     "start": "react-scripts start",
     "test": "react-scripts test"
   },
@@ -15,7 +15,7 @@
     }
   },
   "lint-staged": {
-    "*.+(json|css|md)": [
+    "*.+(json|css|md|html)": [
       "prettier --write",
       "git add"
     ],
@@ -23,7 +23,7 @@
       "eslint --fix",
       "git add"
     ],
-    "*.json": [
+    "package.json": [
       "npx sort-package-json",
       "git add"
     ]

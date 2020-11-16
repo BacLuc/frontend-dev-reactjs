@@ -1,0 +1,7 @@
+/build
+/node_modules
+**/*.js
+**/*.jsx
+**/*.ts
+**/*.tsx
+**/*.snap
