@@ -1,27 +1,42 @@
 import React, {Component} from "react";
-import {Jumbotron, Navbar, NavbarBrand} from "reactstrap";
+import {Collapse, Nav, Navbar, NavbarBrand, NavbarToggler, NavLink} from "reactstrap";
+import {NavLink as RRNavLink} from "react-router-dom";
 
-export class Header extends Component {
+interface HeaderState {
+    isNavOpen: boolean
+}
+
+
+export class Header extends Component<any, HeaderState> {
+    public readonly state: Readonly<HeaderState> = {isNavOpen: false}
+
+
+    constructor(props: Readonly<any>) {
+        super(props);
+        this.toggleNav.bind(this);
+    }
+
+    toggleNav() {
+        this.setState({isNavOpen: !this.state.isNavOpen})
+    }
+
     render() {
         return (
-            <React.Fragment>
-                <Navbar dark>
-                    <div className="container">
-                        <NavbarBrand href="/">Ristorante Con Fusion</NavbarBrand>
-                    </div>
+            <div>
+                <Navbar dark expand={"md"}>
+                    <NavbarToggler onClick={_ => this.toggleNav()}/>
+                    <NavbarBrand className={"mr-auto"} href="/"><img src={"assets/images/logo.png"} height="30"
+                                                                     width="41"
+                                                                     alt='Ristorante Con Fusion'/></NavbarBrand>
+                    <Collapse isOpen={this.state.isNavOpen} navbar>
+                        <Nav navbar>
+                            <NavLink to={"/home"} tag={RRNavLink}>Home</NavLink>
+                            <NavLink to={"/menu"} tag={RRNavLink}>Menu</NavLink>
+                        </Nav>
+
+                    </Collapse>
                 </Navbar>
-                <Jumbotron>
-                    <div className="container">
-                        <div className="row row-header">
-                            <div className="col-12 col-sm-6">
-                                <h1>Ristorante con Fusion</h1>
-                                <p>We take inspiration from the World's best cuisines, and create a unique fusion
-                                    experience. Our lipsmacking creations will tickle your culinary senses!</p>
-                            </div>
-                        </div>
-                    </div>
-                </Jumbotron>
-            </React.Fragment>
+            </div>
         );
     }
 }

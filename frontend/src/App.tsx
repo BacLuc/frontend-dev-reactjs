@@ -4,6 +4,8 @@ import {Menu} from "./components/Menu";
 import {DISHES} from "./shared/dishes";
 import {Header} from "./components/Header";
 import {Footer} from "./components/Footer";
+import {BrowserRouter, Switch, Route, Redirect} from "react-router-dom";
+import {Home} from "./pages/Home";
 
 export class App extends Component<any, any> {
 
@@ -17,9 +19,15 @@ export class App extends Component<any, any> {
     render() {
         return (
             <div>
-                <Header/>
-                <Menu dishes={this.state.dishes}/>
-                <Footer/>
+                <BrowserRouter>
+                    <Header />
+                    <Switch>
+                        <Route path={"/home"} component={() => <Home/>}/>
+                        <Route exact path={"/menu"} component={() => <Menu dishes={this.state.dishes}/>}/>
+                        <Redirect exact from={"/"} to={"home"}/>
+                    </Switch>
+                    <Footer/>
+                </BrowserRouter>
             </div>
         )
     };
