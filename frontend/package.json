@@ -70,6 +70,7 @@
   },
   "devDependencies": {
     "@types/react-test-renderer": "~16.9.3",
+    "cosmiconfig": "^7.0.0",
     "eslint-config-prettier": "^6.15.0",
     "eslint-plugin-prettier": "^3.1.4",
     "husky": "^4.3.0",
