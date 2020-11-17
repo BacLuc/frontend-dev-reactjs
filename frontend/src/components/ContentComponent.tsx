@@ -5,6 +5,7 @@ import {connect, ConnectedProps} from "react-redux";
 import {Home} from "../pages/Home";
 import {Menu} from "../pages/Menu";
 import {compose} from "redux";
+import {Contact} from "../pages/Contact";
 
 const mapState = (state: AppState) => ({dishes: state.dishes})
 
@@ -23,6 +24,7 @@ class ContentComponent extends Component<ContentProps> {
             <Switch>
                 <Route path={"/home"} component={Home}/>
                 <Route exact path={"/menu"} component={() => <Menu dishes={this.props.dishes}/>}/>
+                <Route exact path={"/contact"} component={Contact} />
                 <Redirect exact from={"/"} to={"home"}/>
             </Switch>
         );

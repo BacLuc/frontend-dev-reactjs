@@ -32,6 +32,7 @@ export class Header extends Component<any, HeaderState> {
                         <Nav navbar>
                             <NavLink to={"/home"} tag={RRNavLink}>Home</NavLink>
                             <NavLink to={"/menu"} tag={RRNavLink}>Menu</NavLink>
+                            <NavLink to={"/contact"} tag={RRNavLink}>Contact</NavLink>
                         </Nav>
 
                     </Collapse>
