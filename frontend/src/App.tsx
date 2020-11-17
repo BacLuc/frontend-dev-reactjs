@@ -1,33 +1,25 @@
 import React, {Component} from 'react';
 import './App.css';
-import {DISHES} from "./shared/dishes";
 import {Header} from "./components/Header";
 import {Footer} from "./components/Footer";
-import {BrowserRouter, Switch, Route, Redirect} from "react-router-dom";
-import {Home} from "./pages/Home";
-import {Menu} from "./pages/Menu";
+import {ConfigureStore} from "./store/ConfigureStore";
+import {Provider} from "react-redux";
+import {default as ContentComponent} from "./components/ContentComponent";
+import {BrowserRouter} from "react-router-dom";
+
+const store = ConfigureStore();
 
 export class App extends Component<any, any> {
-
-    constructor(props: Readonly<any>) {
-        super(props);
-        this.state = {
-            dishes: DISHES
-        }
-    }
-
     render() {
         return (
             <div>
-                <BrowserRouter>
-                    <Header />
-                    <Switch>
-                        <Route path={"/home"} component={() => <Home/>}/>
-                        <Route exact path={"/menu"} component={() => <Menu dishes={this.state.dishes}/>}/>
-                        <Redirect exact from={"/"} to={"home"}/>
-                    </Switch>
-                    <Footer/>
-                </BrowserRouter>
+                <Provider store={store}>
+                    <BrowserRouter >
+                        <Header/>
+                        <ContentComponent />
+                        <Footer/>
+                    </BrowserRouter>
+                </Provider>
             </div>
         )
     };
