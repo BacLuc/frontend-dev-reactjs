@@ -1,8 +1,19 @@
-import {Component} from "react";
+import React, {Component} from "react";
 import {Breadcrumb, BreadcrumbItem, Button, Col, Label, Row} from "reactstrap";
 import {Link} from "react-router-dom";
-import React from "react";
 import {Control, Errors, LocalForm, ValidatorFn} from "react-redux-form";
+import {connect} from "react-redux";
+import {compose, Dispatch} from "redux";
+import {Feedback} from "../store/ActionTypes";
+import {addFeedback} from "../store/ActionCreators";
+
+interface Props {
+    addFeedback: Function
+}
+
+const mapDispatchToProps = (dispatch: Dispatch) : Props => ({addFeedback: (feedback : Feedback) => dispatch(addFeedback(feedback))})
+
+const connector = connect(_ => {}, mapDispatchToProps);
 
 interface Touched {
     firstName: boolean
@@ -22,7 +33,7 @@ const maxLength = (len:number) => (val:any) => !(val) || (val.length <= len);
 const minLength = (len:number) => (val:any) => val && (val.length >= len);
 const validEmail = (val:any) => /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(val);
 
-export class Contact extends Component<any, ContactState> {
+class Contact extends Component<Props, ContactState> {
     public readonly state:ContactState = {
         firstName: '',
         lastName: '',
@@ -35,7 +46,7 @@ export class Contact extends Component<any, ContactState> {
     }
 
     handleSubmit(values:any) {
-        alert("Submitted with state: " + JSON.stringify(values))
+        this.props.addFeedback(values);
     }
 
 
@@ -86,7 +97,7 @@ export class Contact extends Component<any, ContactState> {
                                 <i className="fa fa-phone"/>
                                 Call
                             </a>
-                            <button className="btn btn-info" role="button">
+                            <button className="btn btn-info">
                                 <i className="fa fa-skype"/>
                                 Skype
                             </button>
@@ -194,3 +205,5 @@ export class Contact extends Component<any, ContactState> {
         );
     }
 }
+
+export default compose(connector)(Contact)

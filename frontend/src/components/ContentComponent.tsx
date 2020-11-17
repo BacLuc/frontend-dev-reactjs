@@ -5,7 +5,7 @@ import {connect, ConnectedProps} from "react-redux";
 import {Home} from "../pages/Home";
 import {Menu} from "../pages/Menu";
 import {compose} from "redux";
-import {Contact} from "../pages/Contact";
+import { default as Contact} from "../pages/Contact";
 
 const mapState = (state: AppState) => ({dishes: state.dishes})
 
